@@ -1,0 +1,61 @@
+tok_eof 1
+ident 2
+rw_var 3
+rw_begin 4
+rw_end 5
+rw_if 6
+rw_integer 7
+rw_read 8
+rw_real 9
+rw_then 10
+rw_write 11
+lit_int 12
+op_add 14
+op_sub 15
+op_mul 16
+op_div 17
+lparen 18
+rparen 19
+comma 22
+semic 23
+colon 24
+op_lt 25
+op_gt 26
+op_le 27
+op_ge 28
+op_eq 29
+op_ne 30
+becomes 31
+
+program -> rw_begin stmt_list rw_end tok_eof
+stmt_list -> stmt semic stmt_list
+stmt_list -> 
+stmt -> rw_var idents colon type
+stmt -> ident becomes expr
+stmt -> rw_if ident comp_op ident rw_then ident becomes expr
+stmt -> rw_read ident
+stmt -> rw_write expr
+idents -> ident ident_tail
+ident_tail -> comma ident ident_tail
+ident_tail -> 
+type -> rw_integer
+type -> rw_real
+expr -> term term_tail
+term_tail -> add_op term term_tail
+term_tail ->
+term -> factor fact_tail
+fact_tail -> calc_op factor fact_tail
+fact_tail ->
+factor -> lit_int
+factor -> lparen expr rparen
+factor -> ident
+calc_op -> op_add
+calc_op -> op_sub
+calc_op -> op_mul
+calc_op -> op_div
+comp_op -> op_lt
+comp_op -> op_gt
+comp_op -> op_le
+comp_op -> op_ge
+comp_op -> op_eq
+comp_op -> op_ne

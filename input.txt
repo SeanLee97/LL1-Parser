@@ -1,0 +1,9 @@
+begin
+	var x, y: integer;
+	var z: real;
+	read x;
+	read y;
+	if x > y then z := x - (5 * 2);
+	if x < y then z := y + (5 * 2);
+	write z / 6;
+end
