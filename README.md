@@ -16,7 +16,7 @@ gcc version >= 3
   |- scan.cpp
   |- grammar.h
   |- grammar.cpp
-  |- Makeflie       -  makefile
+  |- Makefile       -  makefile
   |- grammar.txt    -  define your own rules
   |- input.txt      -  your own program
 ```
